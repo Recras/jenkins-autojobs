@@ -1,4 +1,3 @@
-
 import re
 import yaml
 
@@ -152,8 +151,8 @@ def get_default_config(config, opts):
     if '-d' in o: c['debug'] = True
 
     # jenkins authentication options
-    c['username'] = o.get('-u', None)
-    c['password'] = o.get('-p', None)
+    if '-u' in o: c['username'] = o.get('-u', None)
+    if '-p' in o: c['password'] = o.get('-p', None)
 
     c['scm-username'] = c.get('scm-username', None) #:todo
     c['scm-password'] = c.get('scm-password', None) #:todo
